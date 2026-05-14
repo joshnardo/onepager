@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tasty Heavy — Home</title>
+
+  <style>
+    :root{
+      --accent:#06bebd;
+      --bg:#ffffff;
+      --fg:#000000;
+    }
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; margin:0; }
+    body{
+      font-family:"Andale Mono", Arial, sans-serif;
+      background:#fff; color:#000;
+      display:flex; flex-direction:column; min-height:100vh;
+    }
+
+    main{ flex:1; }
+    .wrap{ max-width:1100px; margin:0 auto; padding:40px 18px; }
+
+    /* --- HEADER --- */
+    header.site-header{
+      position:sticky; top:0; z-index:5000;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:10px 18px;
+      border-bottom:1px solid #eaeaea; background:#fff;
+    }
+    .logo-block{ display:flex; align-items:flex-end; gap:12px; }
+    .logo img{ height:42px; display:block; }
+    .tagline{ font-size:13px; font-weight:400; color:#555; white-space:nowrap; }
+
+    .header-nav { display: flex; gap: 20px; }
+    .header-nav a { 
+      font-size: 13px; 
+      text-decoration: none; 
+      color: #000; 
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .header-nav a:hover { color: var(--accent); }
+
+    /* --- HOME CONTENT STYLES --- */
+    .home-video-container{
+      position:relative; width:100%; aspect-ratio:16/9;
+      background:#000; overflow:hidden; margin-bottom:48px;
+      pointer-events: none; 
+    }
+    .home-video-container iframe{
+      position:absolute; top: 50%; left: 50%;
+      width: 100vw; height: 56.25vw; 
+      min-height: 100%; min-width: 100%;
+      transform: translate(-50%, -50%);
+      border:0;
+    }
+    
+    .home-about-section {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      margin: 80px auto;
+      max-width: 1000px;
+    }
+
+    .about-photo {
+      flex: 0 0 40%;
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .home-copy {
+      flex: 1;
+      text-align: left;
+    }
+
+    .home-copy p {
+      font-size: 24px; 
+      line-height: 1.4; 
+      font-weight: 800; 
+      margin: 0 0 10px 0;
+      letter-spacing: -0.5px;
+    }
+
+    .home-copy p.cap-header {
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+
+    .home-copy p.cap-header u {
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+
+    /* --- CLIENTS SECTION --- */
+    .client-logos-section {
+      margin: 80px auto;
+      text-align: center;
+    }
+    .client-logos-section h3 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 32px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .client-logos-section h3 u {
+      text-decoration-thickness: 2px;
+      text-underline-offset: 6px;
+    }
+    .client-logos{ 
+      margin: 0 auto; 
+      width: 75%; 
+      max-width: 825px; 
+    }
+    .client-logos img{ width:100%; height:auto; display:block; }
+
+    /* --- MUSIC SECTION --- */
+    .music-section {
+      margin: 80px auto;
+      max-width: 800px;
+      text-align: center;
+    }
+    .music-section h3 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 32px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .music-section h3 u {
+      text-decoration-thickness: 2px;
+      text-underline-offset: 6px;
+    }
+    .sc-attribution {
+      font-size: 10px; 
+      color: #cccccc;
+      line-break: anywhere;
+      word-break: normal;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis; 
+      font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+      font-weight: 100;
+      margin-top: 12px;
+    }
+    .sc-attribution a { color: #cccccc; text-decoration: none; }
+
+    /* --- CONTACT SECTION --- */
+    .contact-grid{ 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+      gap: 32px; margin-top: 64px; border-top: 1px solid #eee; padding-top: 40px;
+    }
+    .contact-grid h3{ font-size:18px; font-weight:800; margin:0 0 10px; }
+    .contact-grid a{ color:#000; text-decoration:none; font-weight:700; border-bottom: 2px solid var(--accent); }
+    .contact-grid a:hover { color: var(--accent); }
+
+    /* Mobile Adjustments */
+    @media (max-width:768px){
+      header.site-header{ flex-direction:column; align-items:center; gap:12px; padding:14px 18px 16px; }
+      .logo-block{ flex-direction:column; align-items:center; gap:6px; }
+      .tagline{ white-space:normal; font-size:12px; line-height:1.3; text-align:center; }
+      .header-nav { gap: 15px; margin-top: 5px; }
+
+      .home-about-section {
+        flex-direction: column;
+        gap: 32px;
+        margin: 48px auto;
+      }
+      
+      .home-copy { 
+        order: 1; 
+        text-align: center;
+      }
+      
+      .about-photo { 
+        order: 2; 
+        width: 80%; 
+      }
+
+      .home-copy p { font-size: 20px; }
+      
+      .music-section {
+        margin: 48px auto;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+      }
+    }
+
+    footer.site-footer{
+      border-top:1px solid #eaeaea; background:#fff;
+      padding:24px 18px; font-size:14px; color:#000;
+      display:flex; justify-content:center; align-items:center;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <div class="logo-block">
+      <a class="logo" href="index.html">
+        <img src="https://res.cloudinary.com/dlyxadp9n/image/upload/v1742775262/TastyLogo2024_i09kgy.png" alt="Tasty Heavy logo">
+      </a>
+      <span class="tagline">is Josh Nardo | Director and Creative</span>
+    </div>
+    <nav class="header-nav">
+      <a href="mailto:hello@tastyheavy.com">Email</a>
+      <a href="https://instagram.com/tastyheavy" target="_blank">Instagram</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap">
+      
+      <!-- 1. Hero Video -->
+      <div class="home-video-container">
+        <iframe
+          src="https://player.vimeo.com/video/1192331346?autoplay=1&muted=1&loop=1&background=1"
+          allow="autoplay; fullscreen"
+          title="Home Reel"></iframe>
+      </div>
+
+      <!-- 2. About Section -->
+      <div class="home-about-section">
+        <div class="about-photo">
+          <img src="https://res.cloudinary.com/dlyxadp9n/image/upload/v1778782492/Josh_qoejbq.png" alt="Josh Nardo">
+        </div>
+        <div class="home-copy">
+          <p>A middle aged creative professional with over 17 years in the biz specializing in doing it all.</p>
+          <p class="cap-header"><u>Capabilities</u></p>
+          <p>Concept Development</p>
+          <p>Video Production</p>
+          <p>Post Production</p>
+          <p>Music and Sound Design</p>
+        </div>
+      </div>
+
+      <!-- 3. Client Logos Section -->
+      <section class="client-logos-section">
+        <h3><u>some brands we’ve worked with</u></h3>
+        <div class="client-logos">
+          <img src="https://res.cloudinary.com/dlyxadp9n/image/upload/v1755731849/client_logos_final_2024updated_sktvjf.png" alt="Client logos">
+        </div>
+      </section>
+
+      <!-- 4. Music Curation Section -->
+      <div class="music-section">
+        <h3><u>What I’ve been listening to</u></h3>
+        <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2237259824&color=%2356bbbc&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+        <div class="sc-attribution">
+          <a href="https://soundcloud.com/josh-nardo" title="Josh Nardo" target="_blank">Josh Nardo</a> · <a href="https://soundcloud.com/josh-nardo/sets/tasty-heavy" title="Tasty Heavy" target="_blank">Tasty Heavy</a>
+        </div>
+      </div>
+
+      <!-- 5. Contact/Get In Touch -->
+      <div class="contact-grid">
+        <div>
+          <h3>Inquiries</h3>
+          <a href="mailto:hello@tastyheavy.com">hello@tastyheavy.com</a>
+        </div>
+        <div>
+          <h3>Social</h3>
+          <a href="https://instagram.com/tastyheavy" target="_blank">@tastyheavy</a>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© 2026 Tasty Heavy</span>
+  </footer>
+
+</body>
+</html>
